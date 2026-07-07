@@ -1,0 +1,15 @@
+station_name,station_id,where_stream,topology,site_type,pfafstetter_code,downstream_station_id,location_rel_to_dam,relevant_dam,has_flow_data,is_disjoint,notes
+"Swan River near Bigfork, MT",USGS-12370000,upstream,sw_upr,stream,2,USGS-12371550,upstream,Bigfork Hydroelectric Project,TRUE,TRUE,Before Bigfork dam; right after Swan Lake
+Flathead Lake at Polson MT,USGS-12371550,midstream,fh_lwr,lake,3,USGS-12372000,midstream,ALL,FALSE,TRUE,South end of lake
+Flathead River near Polson MT,USGS-12372000,downstream,fh_lwr,stream,1,NA,downstream,SKQ Dam,TRUE,TRUE,"Outlet of river system, after SKQ Dam"
+Flathead River at Foys Bend nr Kalispell MT,USGS-12366500,upstream,fh_upr,stream,5,USGS-12371550,NA,NA,FALSE,FALSE,Water level data only; no stream flow
+"Stillwater River at Lawrence Park, at Kalispell",USGS-12365700,upstream,st_upr,stream,41,USGS-12371550,NA,NA,TRUE,TRUE,There is no longer a station between Flathead Lake where Stillwater joins Flathead River; must add manually or use historical pre 2024 data (USGS-12363500)
+Whitefish River near Kalispell MT,USGS-12366000,upstream,st_upr,stream,42,USGS-12371550,NA,NA,TRUE,TRUE,
+Flathead River at Columbia Falls MT,USGS-12363000,upstream,fh_upr,stream,5,USGS-12371550,NA,NA,TRUE,FALSE,
+S F Flathead River nr Columbia Falls MT,USGS-12362500,upstream,sf_fh,stream,61,USGS-12363000,downstream,Hungry Horse Dam,TRUE,TRUE,
+Hungry Horse Reservoir nr Hungry Horse MT,USGS-12362000,upstream,sf_fh,lake,63,USGS-12362500,upstream,Hungry Horse Dam,FALSE,TRUE,Measures water level of dam reservoir
+S F Flathead R ab Twin C nr Hungry Horse MT,USGS-12359800,upstream,sf_fh,stream,69,USGS-12362000,upstream,Hungry Horse Dam,TRUE,FALSE,
+"Flathead River near Kalispell, MT",USGS-12363500,upstream,fh_upr,stream,5,USGS-12371550,NA,NA,TRUE,FALSE,Discontinued late 2024; upstream of where Stillwater joins Flathead River
+M F Flathead River near West Glacier MT,USGS-12358500,upstream,mf_fh,stream,8,USGS-12363000,NA,NA,TRUE,TRUE,
+N F Flathead River nr Columbia Falls MT,USGS-12355500,upstream,nf_fh,stream,91,USGS-12363000,NA,NA,TRUE,TRUE,
+Flathead River at Flathead British Columbia,USGS-12355000,upstream,nf_fh,stream,99,USGS-12355500,NA,NA,TRUE,FALSE,
