@@ -1,10 +1,38 @@
 # `flathead-flows`: Net stream flow in and out of Flathead Lake
 
-## Areas of interest
+## Overview
 
-See [data/stations.csv](data/stations.csv) for a spreadsheet of the USGS metering stations used in this analysis.
+The water level of Flathead Lake in Montana is an annual [point of contention](https://montanafreepress.org/2025/06/16/tribes-to-reduce-dam-flows-to-keep-flathead-lake-closer-to-full-pool/). Especially in the past few years, complaints abound about the low water levels harming recreation and tourism around the lake. The usual suspects blamed each year include
+* federal stream-flow minimums to protect fish and power generation
+* mismanagement of the SKQ Dam (formerly Kerr Dam) under the Confederated Salish & Kootenai Tribes' Energy Keepers,
+* lower snowpack in the mountains upstream of the lake
+* early snowmelt due to hotter late-spring temperatures.
+
+The list goes on, but the main takeaway is that the commonly espoused causes for our drained lake are (1) Governance and (2) Environment. This analysis aims to shed some light on Number 2. By displaying where water streams in and out of Flathead Lake (later, where it rains and snows), this project should help people give the Environment argument at least a fair shake.
+
+The means of displaying Flathead's water flows is a Sankey diagram. Tributaries and reservoirs show up as arrows and blobs on a map, highlighting which streams play the biggest role in keeping the lake full.
+
+## Methodology
+
+See [data/stations.csv](data/stations.csv) for a spreadsheet of the USGS metering stations used in this analysis. USGS has created a [`dataretrieval`](https://water.usgs.gov/catalog/tools/0388b0a4-66ec-47ad-9ba9-07ac621ddd06/) package for Python as a wrapper for the [USGS Water Data APIs](https://api.waterdata.usgs.gov/ogcapi/v0/openapi?f=html#/daily/getDailyFeatures).
+
+### Hydrologic topology
 
 The "hydrologic topology" (i.e. network of which streams and water bodies flow into which other streams and water bodies) is not explicitly encoded in USGS's or USDA's basin codes. Instead, I had to manually select the monitoring stations in and out of Flathead Lake and account for double-counting of tributaries.
+
+Hydrologic topology just refers to how streams are arranged like a graph network. For example, the Whitefish River is a tributary of the Stillwater River, so we consider Whitefish to be upstream of Stillwater in the graph representation of this water system. There seem to be two main ways of writing down these relationships between streams.
+
+1. Pfafstetter Coding System
+  * Human-readable method for communicating stream relationships at a glance
+2. NHDPlus (National Hydrography Dataset Plus)
+  * Would involve crosswalking USGS station IDs with its respective stream's `ComID`
+
+However, both of these codes really just relate tributaries, but this analysis requires knowing whether the actual station location itself is before or after those confluences. For this reason, we use the `is_disjoint` value from [data/stations.csv](data/stations.csv) to denote whether a station's flow can be summed without double-counting.
+
+### Balance equation for monitoring station flows
+
+We should expect the rate of water flowing into Flathead Lake to be roughly comparable to the rate of water flowing out of the lake. They are almost certainly never equal due to dam flow rate restrictions, surface evaporation, precipitation, and discharge not measured by USGS monitoring stations. What we *can* do is compare the sum of station discharges upstream of the lake to the discharge downstream of SKQ Dam (USGS-12372000).
+
 
 ## Sources
 
@@ -30,22 +58,3 @@ and the regions
 ### Helpful references
 * [GridInfo](https://www.gridinfo.com/plant/big-fork/6459) (PAID)
   * Hydro project locations and breakdowns
-
-## Methodology
-### Hydrologic topology
-
-Hydrologic topology just refers to how streams are arranged like a graph network. For example, the Whitefish River is a tributary of the Stillwater River, so we consider Whitefish to be upstream of Stillwater in the graph representation of this water system. There seem to be two main ways of writing down these relationships between streams.
-
-1. Pfafstetter Coding System
-  * Human-readable method for communicating stream relationships at a glance
-2. NHDPlus (National Hydrography Dataset Plus)
-  * Would involve crosswalking USGS station IDs with its respective stream's `ComID`
-
-However, both of these codes really just relate tributaries, but this analysis requires knowing whether the actual station location itself is before or after those confluences. For this reason, we use the `is_disjoint` value from [data/stations.csv](data/stations.csv) to denote whether a station's flow can be summed without double-counting.
-
-### Balance equation for monitoring station flows
-
-We should expect the rate of water flowing into Flathead Lake to be roughly comparable to the rate of water flowing out of the lake. They are almost certainly never equal due to dam flow rate restrictions, surface evaporation, precipitation, and discharge not measured by USGS monitoring stations. What we *can* do is compare the sum of station discharges upstream of the lake to the discharge downstream of SKQ Dam (USGS-12372000).
-
-## Monitoring stations of interest
-
