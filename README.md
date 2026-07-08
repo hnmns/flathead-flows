@@ -16,6 +16,8 @@ The means of displaying Flathead's water flows is a Sankey diagram. Tributaries 
 
 See [data/stations.csv](data/stations.csv) for a spreadsheet of the USGS metering stations used in this analysis. USGS has created a [`dataretrieval`](https://water.usgs.gov/catalog/tools/0388b0a4-66ec-47ad-9ba9-07ac621ddd06/) package for Python as a wrapper for the [USGS Water Data APIs](https://api.waterdata.usgs.gov/ogcapi/v0/openapi?f=html#/daily/getDailyFeatures).
 
+Flathead Lake level has been measured in its own Somers datum since April of 1909. If you want, you can subtract 1 foot to convert Somers datum to NGVD29.
+
 ### Hydrologic topology
 
 The "hydrologic topology" (i.e. network of which streams and water bodies flow into which other streams and water bodies) is not explicitly encoded in USGS's or USDA's basin codes. Instead, I had to manually select the monitoring stations in and out of Flathead Lake and account for double-counting of tributaries.

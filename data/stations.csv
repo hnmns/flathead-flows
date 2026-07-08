@@ -7,7 +7,7 @@ Flathead River at Foys Bend nr Kalispell MT,USGS-12366500,fhr_foys,upstream,fh_u
 Whitefish River near Kalispell MT,USGS-12366000,whitefish,upstream,st_upr,stream,42,USGS-12371550,NA,NA,TRUE,TRUE,
 Flathead River at Columbia Falls MT,USGS-12363000,fhr_in,upstream,fh_upr,stream,5,USGS-12371550,NA,NA,TRUE,FALSE,
 S F Flathead River nr Columbia Falls MT,USGS-12362500,fhr_s,upstream,sf_fh,stream,61,USGS-12363000,downstream,Hungry Horse Dam,TRUE,TRUE,
-Hungry Horse Reservoir nr Hungry Horse MT,USGS-12362000,hungryhorse,upstream,sf_fh,lake,63,USGS-12362500,upstream,Hungry Horse Dam,FALSE,TRUE,Measures water level of dam reservoir
+Hungry Horse Reservoir nr Hungry Horse MT,USGS-12362000,hungryhorse,upstream,sf_fh,lake,63,USGS-12362500,upstream,Hungry Horse Dam,FALSE,FALSE,Measures water level of dam reservoir
 S F Flathead R ab Twin C nr Hungry Horse MT,USGS-12359800,fhr_s_headwater,upstream,sf_fh,stream,69,USGS-12362000,upstream,Hungry Horse Dam,TRUE,FALSE,
 "Flathead River near Kalispell, MT",USGS-12363500,fhr_in_kalispell,upstream,fh_upr,stream,5,USGS-12371550,NA,NA,TRUE,FALSE,Discontinued late 2024; upstream of where Stillwater joins Flathead River
 M F Flathead River near West Glacier MT,USGS-12358500,fhr_m,upstream,mf_fh,stream,8,USGS-12363000,NA,NA,TRUE,TRUE,
