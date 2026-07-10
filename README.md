@@ -60,3 +60,13 @@ and the regions
 ### Helpful references
 * [GridInfo](https://www.gridinfo.com/plant/big-fork/6459) (PAID)
   * Hydro project locations and breakdowns
+
+
+# TODOs
+* Code Cleanup
+  * Move all-caps constants to [`eda/utils.py`](eda/utils.py)
+* Viz
+  * Create faceted cumulative area chart, with x axis limited to around runoff season (April-September)
+    * Area: Discharge value
+    * Color: Monitoring location
+    * Facet: Year
