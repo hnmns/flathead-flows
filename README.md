@@ -69,3 +69,4 @@ and the regions
   * Move all-caps constants to [`eda/utils.py`](eda/utils.py)
 * Viz
   * Above or below median flow indicated by dotted arrow, over or underfill with color
+  * If using real river geometries, the ridges and wiggles will overlap when line stroke gets big enough
