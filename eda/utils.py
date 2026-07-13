@@ -4,7 +4,7 @@ from IPython.display import display
 
 
 DATE_FORMAT = '%Y-%m-%d'
-
+BBOX_REGION = (-114.609375,47.624287,-113.752441,48.538638)
 
 def display_cols(df):
     '''Shorthand to print a dataframe with many columns so they don't show up as "..."'''

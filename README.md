@@ -60,13 +60,12 @@ and the regions
 ### Helpful references
 * [GridInfo](https://www.gridinfo.com/plant/big-fork/6459) (PAID)
   * Hydro project locations and breakdowns
-
+* [Flathead Lakers](https://www.flatheadlakers.org/flathead-lake-levels)
+  * Publish a chart with inflows, outflows, net flow, and lake level
+    * Only shows the last week of data
 
 # TODOs
 * Code Cleanup
   * Move all-caps constants to [`eda/utils.py`](eda/utils.py)
 * Viz
-  * Create faceted cumulative area chart, with x axis limited to around runoff season (April-September)
-    * Area: Discharge value
-    * Color: Monitoring location
-    * Facet: Year
+  * Above or below median flow indicated by dotted arrow, over or underfill with color
