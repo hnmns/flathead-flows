@@ -70,3 +70,8 @@ and the regions
 * Viz
   * Above or below median flow indicated by dotted arrow, over or underfill with color
   * If using real river geometries, the ridges and wiggles will overlap when line stroke gets big enough
+
+
+# Instructions to test
+
+From project root, run `uv run python -m http.server 8000` and go to [`http://localhost:8000`](http://localhost:8000).
