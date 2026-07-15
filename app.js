@@ -29,10 +29,12 @@ function projectPoint(lon, lat) {
   return [point.x, point.y];
 }
 
+const curveInterpolator = d3.curveBasisOpen;
+
 const lineGen = d3.line()
   .x(d => projectPoint(d[0], d[1])[0])
   .y(d => projectPoint(d[0], d[1])[1])
-  .curve(d3.curveBasis);
+  .curve(curveInterpolator);
 
 // --- Load data and build the chart ------------------------------------
 let links = [];
@@ -50,7 +52,8 @@ d3.json('data/discharge/json/links.json').then(data => {
 
   const slider = d3.select('#date-slider')
     .attr('max', dates.length - 1)
-    .attr('value', dates.length - 1)
+    .property('value', dates.length - 1)
+    // not .attr('value', ...), since rendered thumb pos controlled by property, not attr
     .on('input', function () { render(+this.value); });
 
   const paths = g.selectAll('path.river-path')

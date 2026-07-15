@@ -70,7 +70,11 @@ and the regions
 * Viz
   * Above or below median flow indicated by dotted arrow, over or underfill with color
   * If using real river geometries, the ridges and wiggles will overlap when line stroke gets big enough
-
+* App
+  * Small bugs
+    * ~~Date slider visually is set to earliest, but actually lists latest date (July 6, 2026)~~
+      * Solution: In d3, set the `#date-slider` `input`'s `value` using property, not attr
+    * Arrows at end of river paths can point in weird directions because of last-second squiggles
 
 # Instructions to test
 
