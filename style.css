@@ -41,3 +41,8 @@ html, body {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+.arrowhead {
+  fill: #2166ac;
+  stroke: none;
+}

@@ -57,12 +57,25 @@ and the regions
 * Swan
 * Flathead Lake
 
-### Helpful references
+### Sources and helpful references
+* [SKQ Dam license summary slides](https://www.usbr.gov/pn/hungryhorse/publicengagement/documents/2-2024-03-14_EKI-SKQ_Final.pdf)
+  * Slideshow from Energy Keepers, summarizing 2025 federal flow minimum schedule
 * [GridInfo](https://www.gridinfo.com/plant/big-fork/6459) (PAID)
   * Hydro project locations and breakdowns
 * [Flathead Lakers](https://www.flatheadlakers.org/flathead-lake-levels)
   * Publish a chart with inflows, outflows, net flow, and lake level
     * Only shows the last week of data
+
+# Notes
+Article 56 of the FERC-issued license for SKQ Dam specifies a minimum flow schedule.
+
+# AI Usage
+
+This project made use of Claude throughout. The LLM-assisted tasks were:
+* Drafting an AI-human work delegation plan
+* Browsing sources for geographic river path data
+* Generating template code for the d3.js application
+* Consolidating federal minimum flow values for SKQ Dam for the year 2025
 
 # TODOs
 * Code Cleanup
@@ -75,6 +88,8 @@ and the regions
     * ~~Date slider visually is set to earliest, but actually lists latest date (July 6, 2026)~~
       * Solution: In d3, set the `#date-slider` `input`'s `value` using property, not attr
     * Arrows at end of river paths can point in weird directions because of last-second squiggles
+    * Point projection of new river path arrows breaks when zooming on Leaflet map
+      * Solution: 
 
 # Instructions to test
 
