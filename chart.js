@@ -35,8 +35,8 @@ function initChart(containerId, dischargeSeries, minFlowData) {
 
   chartInner.append('text')
     .attr('transform', 'rotate(-90)')
-    .attr('x', -height / 2)
-    .attr('y', -40)
+    .attr('x', -height/2)
+    .attr('y', -45)
     .attr('text-anchor', 'middle')
     .attr('class', 'chart-legend')
     .text('Discharge (cfs)');
@@ -60,14 +60,19 @@ function initChart(containerId, dischargeSeries, minFlowData) {
     .attr('d', minFlowLineGen);
 
   chartInner.append('text')
+    .attr('class', 'chart-title')
+    .attr('x', 8).attr('y', 0)
+    .text('Discharge out of Flathead River');
+
+  chartInner.append('text')
     .attr('class', 'chart-legend')
     .attr('x', 8).attr('y', 14).attr('fill', '#2166ac')
-    .text('fhr_out discharge');
+    .text('River discharge after SKQ Dam');
 
   chartInner.append('text')
     .attr('class', 'chart-legend')
     .attr('x', 8).attr('y', 28).attr('fill', '#d6604d')
-    .text('2025 minimum flow (actual)');
+    .text('Minimum outflow schedule enacted for 2025');
 
   const vertLine = chartInner.append('line')
     .attr('class', 'date-indicator')
@@ -125,9 +130,21 @@ function initHoldbackChart(containerId, holdbackSeries) {
     .attr('d', lineGen);
 
   chartInner.append('text')
+    .attr('transform', 'rotate(-90)')
+    .attr('x', -height/2)
+    .attr('y', -45)
+    .attr('text-anchor', 'middle')
     .attr('class', 'chart-legend')
-    .attr('x', 8).attr('y', 14)
-    .text('Net inflow − min. required outflow');
+    .text('Discharge (cfs)');
+
+  chartInner.append('text')
+    .attr('class', 'chart-title')
+    .attr('x', 8).attr('y', 0)
+    .text('Maximum possible water holdback for Flathead Lake');
+  chartInner.append('text')
+    .attr('class', 'chart-legend')
+    .attr('x', 8).attr('y', 14).attr('fill', '#1a9850')
+    .text('Difference between total lake inflows and 2025 federal outflow minimum');
 
   const vertLine = chartInner.append('line')
     .attr('class', 'date-indicator')
