@@ -7,15 +7,23 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="map"></div>
+  <div id="map-col">
+    <div id="map"></div>
+  </div>
+  <div id="chart-col">
+    <div class="chart-row" id="chart-outflow"></div>
+    <div class="chart-row" id="chart-holdback"></div>
+  </div>
 
   <div id="controls">
+    <select id="season-select"></select>
     <label for="date-slider" id="date-label">—</label>
     <input type="range" id="date-slider" min="0" max="0" value="0" step="1" />
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="chart.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

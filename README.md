@@ -35,7 +35,6 @@ However, both of these codes really just relate tributaries, but this analysis r
 
 We should expect the rate of water flowing into Flathead Lake to be roughly comparable to the rate of water flowing out of the lake. They are almost certainly never equal due to dam flow rate restrictions, surface evaporation, precipitation, and discharge not measured by USGS monitoring stations. What we *can* do is compare the sum of station discharges upstream of the lake to the discharge downstream of SKQ Dam (USGS-12372000).
 
-
 ## Sources
 
 ### WDFN State Water Conditions (USGS)
@@ -69,15 +68,29 @@ and the regions
 # Notes
 Article 56 of the FERC-issued license for SKQ Dam specifies a minimum flow schedule.
 
-# AI Usage
+# AI Diligence
 
 This project made use of Claude throughout. The LLM-assisted tasks were:
 * Drafting an AI-human work delegation plan
 * Browsing sources for geographic river path data
 * Generating template code for the d3.js application
 * Consolidating federal minimum flow values for SKQ Dam for the year 2025
+  * Manual verification: Sought out official publication from Dep. of Interior to confirm exact dates of minimum flow deviations.
 
-# TODOs
+Diligence statement example from Anthropic's "AI Fluency: Framework and Foundations":
+>In creating this [document/project/content], I collaborated with [AI assistant name] to assist with [specific tasks: drafting, research, editing, etc.]. I affirm that all AI-generated and co-created content underwent thorough review and evaluation. The final output accurately reflects my understanding, expertise, and intended meaning. While AI assistance was instrumental in the process, I maintain full responsibility for the content, its accuracy, and its presentation. This disclosure is made in the spirit of transparency and to acknowledge the role of AI in the creation process
+
+# Upcoming Plans
+I have summarized my current plans for `flathead-flows` here. Plans can include new features and use cases for the web app. I arranged them roughly in order of descending priority.
+1. Loop in some subject-matter experts (e.g. officials from Energy Keepers or USGS, lakeside business owners, Flathead Lakers) to my project, especially to differentiate the app from existing data visualizations and to ensure fair representation
+   * Consider whether cumulative in/outflows would be a meaningful visualization, as intersections of those two lines represent when the lake has be net filled or drained relative to the chosen start date (i.e. a day when the lake was at minimum pool of 2883ft?)
+2. Add data on snow-water equivalent, precipitation, and temperature WITHOUT cluttering the app and turning it into a bloated dashboard
+   * Idea: "There can never be more than one chart on screen at a time." (What about facets?)
+3. Consider converting the app into a scrollytelling article, which breaks down the many dimensions at play (e.g. climate, ecology, federal regulations, power generation, business interests) and can present those dimensions sequentially
+   * Idea: Leave the left-column river map in place and use the right column for dynamic scrollytelling elements. The map highlights different regions of the drainage system depending on the stage of the scrollyteller.
+4. Estimate the non-discharge-related factors in changing lake level (specifically, evaporation) by comparing daily lake level changes to total daily net flow.
+
+# Fixes
 * Code Cleanup
   * Move all-caps constants to [`eda/utils.py`](eda/utils.py)
 * Viz
@@ -87,9 +100,14 @@ This project made use of Claude throughout. The LLM-assisted tasks were:
   * Small bugs
     * ~~Date slider visually is set to earliest, but actually lists latest date (July 6, 2026)~~
       * Solution: In d3, set the `#date-slider` `input`'s `value` using property, not attr
-    * Arrows at end of river paths can point in weird directions because of last-second squiggles
-    * Point projection of new river path arrows breaks when zooming on Leaflet map
-      * Solution: 
+    * ~~Arrows at end of river paths can point in weird directions because of last-second squiggles~~
+      * Solution: Draw compute arrowhead angle using last 1% of river path points (rather than just last points)
+    * ~~Point projection of new river path arrows breaks when zooming on Leaflet map~~
+      * Solution: Two birds with one stone, disable zoom and UI features, which we didn't want interfering anyway
+    * Time series chart takes up entire right column
+    * Time series chart presents **all** dates, should be limited to one season (April-September)
+  * Big bugs
+    * When using date slider, the discharge out on chart clearly does not match the fhr_out arrow's size changes
 
 # Instructions to test
 
